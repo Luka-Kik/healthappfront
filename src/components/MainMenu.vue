@@ -1,7 +1,7 @@
 <template>
+
   <div class="container">
     <h1>Puši kurac</h1>
-
   </div>
 </template>
 

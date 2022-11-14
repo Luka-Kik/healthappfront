@@ -3,14 +3,12 @@
     <h1>All aerobics</h1>
     <table class="table table-striped">
       <tr>
-        <th>Name Of Exercis</th>
-        <th>Duration</th>
-        <th>Exercise done</th>
+        <th>Name Of Exercise</th>
+        <th>Number Of Repetitions</th>
       </tr>
-      <tr v-for="element in aerobics" v-bind:key="element.id">
+      <tr v-for="element in anaerobics" v-bind:key="element.id">
         <td>{{ element.name }}</td>
-        <td>{{ element.duration }}</td>
-        <td>{{ element.createdAt }}</td>
+        <td>{{ element.numberOfRepetitions }}</td>
       </tr>
     </table>
   </div>
@@ -18,25 +16,25 @@
 </template>
 
 <script>
-import AerobicsService from "@/services/AerobicsService";
+import AnaerobicsService from "@/services/AnaerobicsService";
 
 export default {
-  name: "AerobicsList",
+  name: "AnaerobicsList",
   data() {
     return {
-      aerobics: []
+      anaerobics: []
     }
   },
   methods: {
-    getAerobics() {
-      AerobicsService.getAerobics().then((response) => {
-            this.aerobics = response.data;
+    getAnaerobics() {
+      AnaerobicsService.getAnaerobics().then((response) => {
+            this.anaerobics = response.data;
           }
       )
     }
   },
   created() {
-    this.getAerobics();
+    this.getAnaerobics();
   }
 }
 </script>

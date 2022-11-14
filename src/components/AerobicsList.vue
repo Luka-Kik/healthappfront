@@ -3,7 +3,7 @@
     <h1>All aerobics</h1>
     <table class="table table-striped">
       <tr>
-        <th>Name Of Exercis</th>
+        <th>Name Of Exercise</th>
         <th>Duration</th>
         <th>Exercise done</th>
       </tr>
