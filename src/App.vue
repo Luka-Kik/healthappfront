@@ -1,12 +1,30 @@
 <template>
-  <ul>
-    <li><router-link to="/aerobics">Aerobics</router-link></li>
-    <li><router-link to="/anaerobics">Anaerobics</router-link></li>
-  </ul>
-  <router-view/>
+  <div class="container" id="app">
+
+    <div class="generalData">
+      <p>User: </p>
+      <p>Week: </p>
+      <p>Weight:</p>
+    </div>
+
+    <ul>
+      <li>
+        <router-link to="/resistanceTraining">Resistance Trainings</router-link>
+      </li>
+      <li>
+        <router-link to="/aerobics">Aerobics</router-link>
+      </li>
+      <li>
+        <router-link to="/nutrition">Nutrition</router-link>
+      </li>
+    </ul>
+    <router-view/>
+
+  </div>
 </template>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,16 +33,22 @@
   color: #2c3e50;
 }
 
-nav {
+ul {
   padding: 30px;
 }
 
-nav a {
+li {
   font-weight: bold;
   color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
+li.router-link-exact-active {
   color: #42b983;
+}
+
+.generalData {
+  padding: 1rem;
+  background-color: #33e08f;
+  border: 2px solid white;
 }
 </style>

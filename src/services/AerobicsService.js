@@ -6,8 +6,8 @@ class AerobicsService {
     getAerobics() {
         return axios.get(AEROBICS_URL, {
             auth: {
-                username: 'deepthi',
-                password: 'deepthi'
+                username: 'lukamail',
+                password: 'luka'
             }
         });
     }
