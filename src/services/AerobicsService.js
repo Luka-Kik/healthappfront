@@ -11,6 +11,39 @@ class AerobicsService {
             }
         });
     }
+
+    addAerobics() {
+        return axios.post(AEROBICS_URL, {
+                "name": "Walking TEST",
+                "duration": 22
+            },
+            {
+                auth: {
+                    username: 'lukamail',
+                    password: 'luka'
+                }
+            });
+    }
+
+    deleteAerobics(index) {
+        console.log("DELETE");
+        console.log(index);
+
+        axios.delete(AEROBICS_URL + "/" + index, {
+                auth: {
+                    username: 'lukamail',
+                    password: 'luka'
+                }
+            }
+        )
+            .then((response) => {
+                console.log("SVE OK -->" + response)
+            }).catch((error) => {
+            console.log("NE DELA -->" + error);
+        })
+    }
 }
 
-export default new AerobicsService();
+export default new
+
+AerobicsService();

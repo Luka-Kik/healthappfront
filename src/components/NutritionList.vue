@@ -5,7 +5,6 @@
     <h1>All Meals</h1>
 
     <table class="table table-striped">
-
       <tr>
         <th>Name Of Meal</th>
         <th>Number Of Calories</th>
@@ -19,6 +18,8 @@
       </tr>
 
     </table>
+
+    <button>ADD</button>
 
   </div>
 

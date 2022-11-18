@@ -20,6 +20,9 @@
       </tr>
 
     </table>
+
+    <button>ADD</button>
+
   </div>
 
 </template>
