@@ -19,7 +19,14 @@
 
     </table>
 
-    <button v-on:click="addAerobics('test', 230)">ADD</button>
+    <div>
+      <label for="inputName">Name <input id="inputName" v-model="aerobicsName"></label>
+      <label for="inputDuration">Duration <input id="inputDuration" v-model="aerobicsDuration"></label>
+      <button v-if="aerobicsDuration.length !== 0 && aerobicsName !== 0"
+              v-on:click="addAerobics(aerobicsName, aerobicsDuration)">Submit
+      </button>
+    </div>
+
     <button v-on:click="deleteAerobics">DELETE</button>
 
   </div>
@@ -35,10 +42,13 @@ export default {
   data() {
     return {
       aerobics: [],
-      lastId: Number
+      lastId: Number,
+      aerobicsName: "",
+      aerobicsDuration: ""
     }
   },
   methods: {
+
     getAerobics() {
       AerobicsService.getAerobics().then((response) => {
             this.aerobics = response.data;
@@ -46,11 +56,8 @@ export default {
       )
     },
 
-    addAerobics(/*name, duration*/) {
-      // name = "test"
-      //duration = 150;
-
-      AerobicsService.addAerobics().then((response) => {
+    addAerobics(name, duration) {
+      AerobicsService.addAerobics(name, duration).then((response) => {
             console.log("STATUS CODE --> " + response.status)
             this.getAerobics()
           }

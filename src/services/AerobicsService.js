@@ -12,10 +12,10 @@ class AerobicsService {
         });
     }
 
-    addAerobics() {
+    addAerobics(name, duration) {
         return axios.post(AEROBICS_URL, {
-                "name": "Walking TEST",
-                "duration": 22
+                "name": name,
+                "duration": duration
             },
             {
                 auth: {
@@ -26,9 +26,6 @@ class AerobicsService {
     }
 
     deleteAerobics(index) {
-        console.log("DELETE");
-        console.log(index);
-
         axios.delete(AEROBICS_URL + "/" + index, {
                 auth: {
                     username: 'lukamail',

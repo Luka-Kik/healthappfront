@@ -1,27 +1,18 @@
 <template>
+
   <div class="container" id="app">
-
-    <div class="generalData">
-      <p>User: </p>
-      <p>Week: </p>
-      <p>Weight:</p>
-    </div>
-
-    <ul>
-      <li>
-        <router-link to="/resistanceTraining">Resistance Trainings</router-link>
-      </li>
-      <li>
-        <router-link to="/aerobics">Aerobics</router-link>
-      </li>
-      <li>
-        <router-link to="/nutrition">Nutrition</router-link>
-      </li>
-    </ul>
-    <router-view/>
-
+    <MainView/>
   </div>
+
 </template>
+
+<script>
+import MainView from "@/views/MainView";
+
+export default {
+  components: {MainView}
+}
+</script>
 
 <style>
 
@@ -46,7 +37,7 @@ li.router-link-exact-active {
   color: #42b983;
 }
 
-.generalData {
+.greenHeader {
   padding: 1rem;
   background-color: #33e08f;
   border: 2px solid white;

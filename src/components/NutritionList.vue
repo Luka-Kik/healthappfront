@@ -19,7 +19,15 @@
 
     </table>
 
-    <button>ADD</button>
+    <div>
+      <label for="inputName">Name <input id="inputName" v-model="name"></label>
+      <label for="inputCalories">Calories <input id="inputCalories" v-model="calories"></label>
+      <button v-if="calories.length !== 0 && name !== 0"
+              v-on:click="addMeal(name, calories)">ADD
+      </button>
+    </div>
+
+    <button v-on:click="deleteMeal">DELETE</button>
 
   </div>
 
@@ -33,7 +41,10 @@ export default {
   name: "NutritionList",
   data() {
     return {
-      food: []
+      food: [],
+      lastId: Number,
+      name: "",
+      calories: ""
     }
   },
   methods: {
@@ -42,7 +53,25 @@ export default {
             this.food = response.data;
           }
       )
+    },
+
+    addMeal(name, calories) {
+      NutritionService.addMeal(name, calories).then((response) => {
+            console.log("STATUS CODE --> " + response.status)
+            this.getFood()
+          }
+      ).catch((error) => {
+        console.log("ERROR --> " + error)
+      })
+    },
+
+    deleteMeal() {
+      let index = this.lastId((this.food.at(-1)).id)
+
+      NutritionService.deleteMeal(index);
+      this.food.pop();
     }
+
   },
   created() {
     this.getFood();
